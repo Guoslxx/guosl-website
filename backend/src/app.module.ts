@@ -16,11 +16,14 @@ import { TagEntity as Tag } from './modules/tag/tag.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mongodb',
+      type: 'mysql',
       host: 'localhost',
-      port: 27017,
-      database: 'test',
+      port: 3306,
+      database: 'nest-blog-api',
+      username:'root',
+      password:'root',
       entities: [Post, Tag],
+      synchronize: true,
     }),
     PostsModule,
     TestModule,

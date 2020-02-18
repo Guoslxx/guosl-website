@@ -1,11 +1,11 @@
-import { ObjectIdColumn, ObjectID, Column, ManyToMany, CreateDateColumn, UpdateDateColumn, Entity } from "typeorm";
+import {  Column, ManyToMany, CreateDateColumn, UpdateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import { Post } from "../posts/post.entity";
 
 @Entity()
 export class TagEntity {
-    @ObjectIdColumn()
-    id: ObjectID
+    @PrimaryGeneratedColumn('uuid')
+    id: number
 
     @ApiProperty({ title: '标签名' })
     @Column()
