@@ -16,6 +16,7 @@ export class Post {
     // 原始内容
     content: string;
 
+    @ApiProperty({ description: '标签' })
     @ManyToMany(
         () => TagEntity,
         tag => tag.posts,
@@ -41,7 +42,7 @@ export class Post {
     // // 格式化内容索引，自动生成
     // toc: string; 
 
-    @ApiProperty({ description: '状态' })
+    @ApiProperty({ description: '状态', default: 'draft' })
     @Column('simple-enum', { enum: ['draft', 'publish'] })
     // 文章状态
     status: string;

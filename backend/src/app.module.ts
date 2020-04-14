@@ -11,23 +11,25 @@ import { TestService } from './modules/test/test.service';
 import { Post } from './modules/posts/post.entity';
 import { TagModule } from './modules/tag/tag.module';
 import { TagEntity as Tag } from './modules/tag/tag.entity';
+import { WechatModule } from './modules/wechat/wechat.module';
 
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      database: 'nest-blog-api',
-      username:'root',
-      password:'root',
-      entities: [Post, Tag],
-      synchronize: true,
-    }),
-    PostsModule,
-    TestModule,
-    TagModule
+    // TypeOrmModule.forRoot({
+    //   type: 'mariadb',
+    //   host: 'localhost',
+    //   port: 3306,
+    //   database: 'nest-blog-api',
+    //   username: 'root',
+    //   password: 'sangem2019',
+    //   entities: [Post, Tag],
+    //   synchronize: true,
+    // }),
+    // PostsModule,
+    // TestModule,
+    // TagModule
+    WechatModule
   ],
   controllers: [AppController],
   providers: [AppService],

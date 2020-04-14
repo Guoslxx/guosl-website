@@ -38,7 +38,7 @@ export class PostService {
             throw new HttpException('文章标题已存在', HttpStatus.BAD_REQUEST);
         }
 
-        let { tags } = post;
+        let { tags = [] } = post;
         tags = await this.tagService.findByIds(tags.map(e => e.id.toString()));
         const newPost = this.postRepository.create({
             ...post,
